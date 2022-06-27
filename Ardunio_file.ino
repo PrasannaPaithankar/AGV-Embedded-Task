@@ -116,6 +116,4 @@ void loop() {
   //Output
   Serial.println(x[0][0]);
   Serial.println(V_ocv);
-
-
 }
