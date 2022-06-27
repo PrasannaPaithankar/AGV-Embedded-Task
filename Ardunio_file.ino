@@ -1,20 +1,29 @@
 #include <MatrixMath.h>
 #include <Math.h>
 
-float SoC, V_ct, V_df;
-float V_exp[1], V_pred[1], V_ocv;
-float del_t = 10;
-float tau_ct , tau_df, R_ct, R_df, R_0;
-float R_l;
-float Charge;
-float x_pred[3][1], P_pred[3][3], L[3][3], P_predC_trans[3][1];
-mtx_type* temp1;
 
+float V_exp[1], V_pred[1], V_ocv;
+float del_t = 100;
+
+float x_pred[3][1], P_pred[3][3], L[3][3], L_cpy[3][3], P_predC_trans[3][1];
+float temp1[3][3], temp3[3][1], temp4[1][1];
+
+float  SoC = 1;
+float  V_ct = 0;
+float  V_df = 0;
+float  tau_ct = 1e-5;
+float  tau_df = 1e-5;
+float  R_ct = 0.001;
+float  R_df = 0.001;
+float  R_0 = 0.2;
+float  R_l = 10;
+float  Charge = 0.6;
+  
 float I = 0;
 
 float x[3][1] = {{SoC},
-                {V_ct},
-                {V_df}};
+                 {V_ct},
+                 {V_df}};
                 
 float A[3][3] = {{1, 0, 0},
                  {0, exp(-del_t/tau_ct), 0},
@@ -46,17 +55,6 @@ float Id[3][3] = {{1, 0, 0},
 
 void setup() {
   Serial.begin(9600);
-  
-  SoC = 1;
-  V_ct = 0;
-  V_df = 0;
-  tau_ct = 0;
-  tau_df = 0;
-  R_ct = 0;
-  R_df = 0;
-  R_0 = 0;
-  R_l = 0;
-  Charge = 0.6;
  
   pinMode(2, OUTPUT);
 }
@@ -64,26 +62,30 @@ void setup() {
 void loop() {
   //V and I measurement
   digitalWrite(2, HIGH);
-  V_exp[0] = 5*analogRead(A0)/1023;
-  I = R_l*V_exp[0];
+  V_exp[0] = analogRead(A1);
+  V_exp[0] = V_exp[0]/1023;
+  V_exp[0] = V_exp[0]*5;
+  I = V_exp[0]/R_l;
   delay(del_t);
   digitalWrite(2, LOW);
 
   //Open circuit voltage measurement
-  V_ocv = 5*analogRead(A1)/1023;
-
+  V_ocv = analogRead(A0);
+  V_ocv = V_ocv/1023;
+  V_ocv = V_ocv*5;
+  
   //Extended Kalman Estimator
 
   /* Algorithms based on
    * Carlo Taborelli, Simona Onori. "State of Charge Estimation
    * Using Extended Kalman Filters for Battery Management System".
    */
-   
+
   //19a
-  Matrix.Multiply((mtx_type*)A, (mtx_type*)x, 3, 3, 1, (mtx_type*)temp1);
+  Matrix.Multiply((mtx_type*)A, (mtx_type*)x, 3, 3, 1, (mtx_type*)temp3); 
   Matrix.Scale((mtx_type*)B, 3, 1, (mtx_type)I);
-  Matrix.Add((mtx_type*)temp1, (mtx_type*)B, 3, 1, (mtx_type*)x_pred);
-  
+  Matrix.Add((mtx_type*)temp3, (mtx_type*)B, 3, 1, (mtx_type*)x_pred);
+
   //19b
   Matrix.Multiply((mtx_type*)A, (mtx_type*)P, 3, 3, 3, (mtx_type*)temp1);
   Matrix.Multiply((mtx_type*)temp1, (mtx_type*)A, 3, 3, 3, (mtx_type*)temp1);
@@ -91,24 +93,26 @@ void loop() {
 
   //20a 
   Matrix.Multiply((mtx_type*)P_pred, (mtx_type*)C_trans, 3, 3, 1, (mtx_type*)P_predC_trans);
-  Matrix.Multiply((mtx_type*)C, (mtx_type*)P_predC_trans, 1, 3, 1, (mtx_type*)temp1);
-  Matrix.Add((mtx_type*)R, temp1, 1, 1, temp1); 
-  Matrix.Invert(temp1, 1);
-  Matrix.Scale(temp1, 3, 1, (mtx_type)temp1[0]);
+  Matrix.Multiply((mtx_type*)C, (mtx_type*)P_predC_trans, 1, 3, 1, (mtx_type*)temp4);
+  Matrix.Add((mtx_type*)R, (mtx_type*)temp4, 1, 1, (mtx_type*)temp4); 
+  Matrix.Invert((mtx_type*)temp4, 1);
+  Matrix.Scale((mtx_type*)P_predC_trans, 3, 1, (mtx_type)temp4[0][0]);
+  Matrix.Copy((mtx_type*)P_predC_trans, 3, 1, (mtx_type*)L);
+  Matrix.Copy((mtx_type*)L, 3, 1, (mtx_type*)L_cpy);
 
   //20b
   float aux[1] = {(R_0*I)};
   Matrix.Multiply((mtx_type*)C, (mtx_type*)x_pred, 1, 3, 1, (mtx_type*)V_pred);
   Matrix.Subtract((mtx_type*)V_pred, (mtx_type*)aux, 1, 1, (mtx_type*)V_pred);
-  Matrix.Subtract((mtx_type*)V_exp, (mtx_type*)V_pred, 1, 1,(mtx_type*) temp1);
-  Matrix.Scale((mtx_type*)L, 3, 1, (mtx_type)temp1[0]);
-  Matrix.Add((mtx_type*)x_pred, (mtx_type*)temp1, 3, 1, (mtx_type*)x);
+  Matrix.Subtract((mtx_type*)V_exp, (mtx_type*)V_pred, 1, 1,(mtx_type*) temp4);
+  Matrix.Scale((mtx_type*)L_cpy, 3, 1, (mtx_type)temp4[0][0]);
+  Matrix.Add((mtx_type*)x_pred, (mtx_type*)L_cpy, 3, 1, (mtx_type*)x);
 
   //20c
   Matrix.Multiply((mtx_type*)L, (mtx_type*)C, 3, 1, 3, (mtx_type*)temp1);
-  Matrix.Subtract((mtx_type*)Id, temp1, 3, 3, temp1);
-  Matrix.Multiply(temp1, (mtx_type*)P_pred, 3, 3, 3, (mtx_type*)P);
-
+  Matrix.Subtract((mtx_type*)Id, (mtx_type*)temp1, 3, 3, (mtx_type*)temp1);
+  Matrix.Multiply((mtx_type*)temp1, (mtx_type*)P_pred, 3, 3, 3, (mtx_type*)P);
+  
   //Output
   Serial.println(x[0][0]);
   Serial.println(V_ocv);
