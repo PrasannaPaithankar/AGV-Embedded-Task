@@ -1,7 +1,6 @@
 #include <MatrixMath.h>
 #include <Math.h>
 
-
 float V_exp[1], V_pred[1], V_ocv;
 float del_t = 100;
 
