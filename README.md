@@ -18,7 +18,7 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 ⇌ [Jupyter Notebook](/V_oc-vs-SoC-Determination/EKF_plotting.ipynb)
 ⇌ [Data file](/V_oc-vs-SoC-Determination/V_oc&SoC.csv) 
 ⇌ [Parameter file](/V_oc-vs-SoC-Determination/Relation_param.csv)
-
+2. [SoC Estimator]
 
 
 
