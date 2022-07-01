@@ -12,7 +12,8 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 >   - Overcharge Protection
 >   - Regulated Voltage Output
 
-## How to navigate through the Project
+## 🧭 How to navigate through the Project
+#### Tip: Explore the Jupyter Notebooks before documentation
 1. [V_oc vs SoC Determination folder](/V_oc-vs-SoC-Determination)
 ⇒ [Ardunio file](/V_oc-vs-SoC-Determination/Measurement-to-Serial.ino) 
 ⇌ [Jupyter Notebook](/V_oc-vs-SoC-Determination/EKF_plotting.ipynb)
@@ -23,9 +24,13 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 ⇌ [Jupyter Notebook](/SoC-Estimator/SoC-Estimator.ipynb)
 3. [Documentation](Documentation.pdf)
 
-## Miscellaneous
+## 🧩 Miscellaneous
 - [Generated Plots](/Plots)
-- [Library Requirements](/Requirements.txt)
+- [Library Requirements](/requirements.txt)
 - [References](/References_plain_text.txt) (Plain Text)
+- [Discarded Paths](/miscellaneous-not-used)
+
+##### Submitted to Autonomous Ground Vehical Research Group, IIT Kharagpur
+<img src="/V_oc-vs-SoC-Determination/AGVlogo.png" class="bg-primary" width="150px">
 
 
