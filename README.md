@@ -1,6 +1,6 @@
-# AGV Embedded - Battery Management Task  
-### Prasanna Paithankar 
-#### Department of Electrical Engineering, IIT Kharagpur
+# 🚓 AGV Embedded - 🔋 Battery Management Task  
+### 🧑🏻‍🦱 Prasanna Paithankar 
+#### ⚡ Department of Electrical Engineering, IIT Kharagpur
 
 Repository intended to organize Task documents regarding AGV Embedded Task Round
 
@@ -12,6 +12,12 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 >   - Overcharge Protection
 >   - Regulated Voltage Output
 
+## How to navigate through the Project
+1. [V_oc-vs-SoC-Determination file](/V_oc-vs-SoC-Determination)
+⇌ [Ardunio file](/V_oc-vs-SoC-Determination/Measurement-to-Serial.ino) 
+⇌ [Jupyter Notebook](/V_oc-vs-SoC-Determination/EKF_plotting.ipynb)
+⇌ [Data file](/V_oc-vs-SoC-Determination/V_oc&SoC.csv) 
+⇌ [Parameter file](/V_oc-vs-SoC-Determination/Relation_param.csv)
 
 
 
