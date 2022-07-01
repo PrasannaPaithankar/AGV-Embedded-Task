@@ -1,11 +1,9 @@
 #include <MatrixMath.h>
 #include <Math.h>
 
-float V_exp[1], V_pred[1], V_ocv;
-float del_t = 100;
 
-float x_pred[3][1], P_pred[3][3], L[3][3], L_cpy[3][3], P_predC_trans[3][1];
-float temp1[3][3], temp3[3][1], temp4[1][1];
+float V_exp[1], V_ocv;
+float del_t = 100;
 
 float  SoC = 1;
 float  R_l = 2.2;
