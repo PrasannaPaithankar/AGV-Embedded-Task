@@ -1,0 +1,6 @@
+[1] C. Taborelli and S. Onori, "State of charge estimation using extended Kalman filters for battery management system," 2014 IEEE International Electric Vehicle Conference (IEVC), 2014, pp. 1-8, doi: 10.1109/IEVC.2014.7056126.
+[2] yu, Zhihao & Huai, Ruituo & Xiao, Linjing. (2015). State-of-Charge Estimation for Lithium-Ion Batteries Using a Kalman Filter Based on Local Linearization. Energies. 8. 7854-7873. 10.3390/en8087854.
+[3] Texas Instruments. “Reverse Current/Battery Protection Circuits”. 2003.
+[4] Zhang, Ruifeng & Xia, Bizhong & Li, Baohua & Cao, Libo & Lai, Yongzhi & Zheng, Weiwei & Wang, Huawen & Wang, Wei & Wang, Mingwang. (2018). A Study on the Open Circuit Voltage and State of Charge Characterization of High Capacity Lithium-Ion Battery Under Different Temperature. Energies. 11. 2408. 10.3390/en11092408.
+[5] Rzepka, Benedikt & Bischof, Simon & Blank, Thomas. (2021). Implementing an Extended Kalman Filter for SoC Estimation of a Li-Ion Battery with Hysteresis: A Step-by-Step Guide. Energies. 14. 3733. 10.3390/en14133733.
+[6] Plett, G.L. Extended Kalman filtering for battery management systems of Lipb-based HEV battery packs—Part 2. Modeling and identification. J. Power Sources 2004, 134, 262–276. 
