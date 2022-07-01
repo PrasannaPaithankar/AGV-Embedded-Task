@@ -19,7 +19,7 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 ⇌ [Data file](/V_oc-vs-SoC-Determination/V_oc&SoC.csv) 
 ⇌ [Parameter file](/V_oc-vs-SoC-Determination/Relation_param.csv)
 2. [SoC Estimator folder](/SoC-Estimator)
-⇒ [Arduino file](/SoC-Estimator/)
+⇒ [Arduino file](/SoC-Estimator/OCV-to-Serial.ino)
 ⇒ [Jupyter Notebook](/SoC-Estimator/SoC-Estimator.ipynb)
 
 
