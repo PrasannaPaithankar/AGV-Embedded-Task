@@ -13,12 +13,12 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 >   - Regulated Voltage Output
 
 ## How to navigate through the Project
-1. [V_oc-vs-SoC-Determination file](/V_oc-vs-SoC-Determination)
-⇌ [Ardunio file](/V_oc-vs-SoC-Determination/Measurement-to-Serial.ino) 
+1. [V_oc vs SoC Determination folder](/V_oc-vs-SoC-Determination)
+⇒ [Ardunio file](/V_oc-vs-SoC-Determination/Measurement-to-Serial.ino) 
 ⇌ [Jupyter Notebook](/V_oc-vs-SoC-Determination/EKF_plotting.ipynb)
 ⇌ [Data file](/V_oc-vs-SoC-Determination/V_oc&SoC.csv) 
 ⇌ [Parameter file](/V_oc-vs-SoC-Determination/Relation_param.csv)
-2. [SoC Estimator]
-
+2. [SoC Estimator folder](/SoC-Estimator)
+⇒
 
 
