@@ -26,6 +26,6 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 ## Miscellaneous
 - [Generated Plots](/Plots)
 - [Library Requirements](/Requirements.txt)
-- [References](/References_plain_text.txt)(Plain Text)
+- [References](/References_plain_text.txt) (Plain Text)
 
 
