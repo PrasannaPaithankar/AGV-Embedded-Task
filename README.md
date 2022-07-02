@@ -25,7 +25,7 @@ Tip: Explore the Jupyter Notebooks before documentation
 2. [SoC Estimator folder](/SoC-Estimator)
 ⇒ [Arduino file](/SoC-Estimator/OCV-to-Serial.ino)
 ⇌ [Jupyter Notebook](/SoC-Estimator/SoC-Estimator.ipynb)
-3. [Documentation](Documentation.pdf)
+3. [Documentation](BMS-Documentation.pdf)
 
 ## 🧩 Miscellaneous
 - [Generated Plots](/Plots)
