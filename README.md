@@ -1,7 +1,7 @@
 # 🚓 AGV Embedded - 🔋 Battery Management Task  
 ***
 ### 🧑🏻‍🦱 Prasanna Paithankar 
-#### ⚡ Department of Electrical Engineering, IIT Kharagpur
+#### ⚡ Department of Computer Science & Engineering, IIT Kharagpur
 ***
 Repository intended to organize Task documents regarding AGV Embedded Task Round
 
