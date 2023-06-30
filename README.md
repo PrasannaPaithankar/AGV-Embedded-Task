@@ -15,7 +15,7 @@ Repository intended to organize Task documents regarding AGV Embedded Task Round
 
 ## 🧭 How to navigate through the Project
 ```
-Tip: Explore the Jupyter Notebooks before documentation
+Tip: Explore the Jupyter Notebooks before the documentation
 ```
 1. [V_oc vs SoC Determination folder](/V_oc-vs-SoC-Determination)
 ⇒ [Ardunio file](/V_oc-vs-SoC-Determination/Measurement-to-Serial.ino) 
@@ -34,7 +34,7 @@ Tip: Explore the Jupyter Notebooks before documentation
 - [Discarded Paths](/miscellaneous-not-used)
 
 ***
-##### Submitted to Autonomous Ground Vehical Research Group, IIT Kharagpur
+##### Submitted to Autonomous Ground Vehicle Research Group, IIT Kharagpur
 <img src="/V_oc-vs-SoC-Determination/AGVlogo.png" class="bg-primary" width="150px">
 
 
